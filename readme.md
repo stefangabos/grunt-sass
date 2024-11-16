@@ -24,30 +24,37 @@ $ npm install --save-dev grunt-sass-modern
 
 ## Usage
 
-Everything in your `Gruntfile.js` should stay pretty much the same, the only addition will be the `api` entry in the `options` part, which needs to be set to `"modern"`:
+In your `Gruntfile.js`, in the `sass` section, you need to add the `api` entry to the `options` part, and set its value to `"modern"`:
 
 ```js
-const sass = require('sass');
+module.exports = function(grunt) {
 
-require('load-grunt-tasks')(grunt);
+    const sass = require('sass');
 
-grunt.initConfig({
-    sass: {
-        options: {
-            implementation: sass,
-            sourceMap: true,
-            api: 'modern'   // this is needed starting with Dart-Sass 1.79.0
-                            // (but only working with the updated version of grunt-sass)
-        },
-        dist: {
-            files: {
-                'main.css': 'main.scss'
+    grunt.initConfig({
+        sass: {
+            options: {
+                implementation: sass,
+                sourceMap: true,
+                api: 'modern'   // this is needed starting with Dart-Sass 1.79.0
+                                // (but only working with the updated version of grunt-sass)
+            },
+            dist: {
+                files: {
+                    'main.css': 'main.scss'
+                }
             }
         }
-    }
-});
+    });
 
-grunt.registerTask('default', ['sass']);
+    // remember to also update this from "grunt-sass" to "grunt-sass-modern"!
+    grunt.loadNpmTasks('grunt-sass-modern');
+
+    grunt.registerTask('default', ['sass']);
+
+}
 ```
+
+
 
 Since this is a fork of the original [grunt-sass](https://github.com/sindresorhus/grunt-sass) repository you can read more about usage and options on the [original project's page](https://github.com/sindresorhus/grunt-sass).
