@@ -1,7 +1,7 @@
 {
-	"name": "grunt-sass",
+	"name": "grunt-sass-modern",
 	"version": "3.1.0",
-	"description": "Compile Sass to CSS using node-sass",
+	"description": "Compile Sass to CSS using dart-sass",
 	"license": "MIT",
 	"repository": "sindresorhus/grunt-sass",
 	"author": {
