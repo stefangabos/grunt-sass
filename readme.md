@@ -35,18 +35,18 @@ require('load-grunt-tasks')(grunt);
 
 grunt.initConfig({
     sass: {
-		options: {
-			implementation: sass,
-			sourceMap: true,
+        options: {
+            implementation: sass,
+            sourceMap: true,
             api: 'modern'   // this is needed starting with Dart-Sass 1.79.0
                             // (but only working with the updated version of grunt-sass)
-		},
-		dist: {
-			files: {
-				'main.css': 'main.scss'
-			}
-		}
-	}
+        },
+        dist: {
+            files: {
+                'main.css': 'main.scss'
+            }
+        }
+    }
 });
 
 grunt.registerTask('default', ['sass']);
