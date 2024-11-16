@@ -3,7 +3,10 @@
 	"version": "3.2.0",
 	"description": "Compile Sass to CSS using dart-sass",
 	"license": "MIT",
-	"repository": "stefangabos/grunt-sass-modern",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/stefangabos/grunt-sass-modern.git"
+	},
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
