@@ -1,73 +1,45 @@
-# grunt-sass
+# grunt-sass-modern
 
-[<img src="https://github.com/sass/sass-site/blob/master/source/assets/img/logos/logo-seal.png" width="150" align="right">](https://sass-lang.com)
+### Compile Sass to CSS using [Dart Sass](http://sass-lang.com/dart-sass) or [Node Sass](https://github.com/sass/node-sass) (deprecated).
 
-> Compile Sass to CSS using [Dart Sass][] or [Node Sass][].
+This is a fork of the original [grunt-sass](https://github.com/sindresorhus/grunt-sass) repository which required a small update  as per [this issue](https://github.com/sindresorhus/grunt-sass/issues/311) after [Dart SASS](https://github.com/sass/dart-sass/tree/main) started emitting the following deprecation warning starting with version `1.79.0`:
 
-[Dart Sass]: http://sass-lang.com/dart-sass
-[Node Sass]: https://github.com/sass/node-sass
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Deprecation Warning: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0._<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_More info: https://sass-lang.com/d/legacy-js-api_
 
-Before filing an issue with this repository, please consider:
-
-* Asking support questions on Use [Stack Overflow][].
-
-* Reporting issues with the output on the [Dart Sass][Dart Sass issues] or [LibSass][LibSass issues] issue trackers, depending which implementation you're using.
-
-* Reporting installation issues on the [Dart Sass][Dart Sass issues] or [Node Sass][Node Sass issues] issue trackers, depending on which implementation you're using.
-
-[Stack Overflow]: https://stackoverflow.com/questions/tagged/node-sass
-[Dart Sass issues]: https://github.com/sass/dart-sass/issues/new
-[LibSass issues]: https://github.com/sass/libsass/issues/new
-[Node Sass issues]: https://github.com/sass/node-sass/issues/new
-
+Since the author of the original repository did not provide a fix and still a lot o projects seem to be relying on it, a fix was created by [Matt Robinson](https://github.com/mattyrob) via [this commit](https://github.com/mattyrob/grunt-sass/commit/f6c3e356f70ce4a246bb5df250b0b7a1b7418ca9), and I decided to fork the main repository, add the fix to it, and also update this page about what you can do to properly update your code and not [just silence the warning](https://sass-lang.com/documentation/breaking-changes/legacy-js-api/#silencing-warnings).
 
 ## Install
 
-```
-$ npm install --save-dev node-sass grunt-sass
-```
+If you are already using the original [grunt-sass](https://github.com/sindresorhus/grunt-sass), edit your `package.json` file and look for something like
 
+```
+"grunt-sass": "^3.1.0",
+```
+...and delete that.
+
+Afterwards, call
+```
+$ npm install --save-dev grunt-sass-modern
+```
+...to install the updated version
 
 ## Usage
 
-```js
-const sass = require('node-sass');
-
-require('load-grunt-tasks')(grunt);
-
-grunt.initConfig({
-	sass: {
-		options: {
-			implementation: sass,
-			sourceMap: true
-		},
-		dist: {
-			files: {
-				'main.css': 'main.scss'
-			}
-		}
-	}
-});
-
-grunt.registerTask('default', ['sass']);
-```
-
-You can choose whether to use [Dart Sass][] or [Node Sass][] by passing the module to the `implementation` option. One implementation or the other *must* be passed.
-
-Note that when using Dart Sass, **synchronous compilation is twice as fast as asynchronous compilation** by default, due to the overhead of asynchronous callbacks. To avoid this overhead, you can use the [`fibers`](https://www.npmjs.com/package/fibers) package to call asynchronous importers from the synchronous code path. To enable this, pass the `Fiber` class to the `fiber` option:
+Everything in your `Gruntfile.js` should stay pretty much the same, the only addition will be the `api` entry in the `options` part, which needs to be set to `"modern"`:
 
 ```js
-const Fiber = require('fibers');
 const sass = require('sass');
 
 require('load-grunt-tasks')(grunt);
 
 grunt.initConfig({
-	sass: {
+    sass: {
 		options: {
 			implementation: sass,
-			fiber: Fiber,
-			sourceMap: true
+			sourceMap: true,
+            api: 'modern'   // this is needed starting with Dart-Sass 1.79.0
+                            // (but only working with the updated version of grunt-sass)
 		},
 		dist: {
 			files: {
@@ -80,11 +52,4 @@ grunt.initConfig({
 grunt.registerTask('default', ['sass']);
 ```
 
-Files starting with `_` are ignored to match the expected [Sass partial behaviour](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials).
-
-
-## Options
-
-See the Node Sass [options](https://github.com/sass/node-sass#options), except for `file`, `outFile`, `success`, `error`.
-
-The default value for the `precision` option is `10`, so you don't have to change it when using Bootstrap.
+Since this is a fork of the original [grunt-sass](https://github.com/sindresorhus/grunt-sass) repository you can read more about usage and options on the [original project's page]((https://github.com/sindresorhus/grunt-sass)).
