@@ -89,5 +89,8 @@ module.exports = function(grunt) {
 }
 ```
 
+## Options
 
-Since this is a fork of the original [grunt-sass](https://github.com/sindresorhus/grunt-sass) repository you can read more about usage and options on the [original project's page](https://github.com/sindresorhus/grunt-sass).
+See the Dart Sass [options](https://sass-lang.com/documentation/js-api/interfaces/options/), except for `file`, `outFile`, `success`, `error`.
+
+For more information please refer to the original [grunt-sass](https://github.com/sindresorhus/grunt-sass) repository.
