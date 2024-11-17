@@ -44,11 +44,11 @@ module.exports = function(grunt) {
                 implementation: sass,
                 sourceMap: true,    // broken in "grunt-sass" for versions of SASS newer than 1.48.0
                 api: 'modern'       // this is required starting with Dart-Sass 1.79.0
-                                    // (but only working with grunt-sass-modern)
+                                    // (and only working with grunt-sass-modern)
             },
             dist: {
                 files: {
-                    'main.css': 'main.scss'
+                    'destination.css': 'source.scss'
                 }
             }
         }
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'main.css': 'main.scss'
+                    'destination.css': 'source.scss'
                 }
             }
         }
