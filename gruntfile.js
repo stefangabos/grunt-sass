@@ -9,7 +9,6 @@ module.exports = grunt => {
         sass: {
             options: {
                 implementation: sass,
-                indentWidth: 4,
                 api: 'modern'
             },
             compile: {
