@@ -2,6 +2,9 @@
 
 ### Compile SASS to CSS using Dart Sass
 
+[![npm](https://img.shields.io/npm/v/grunt-sass-modern.svg)](https://www.npmjs.com/package/grunt-sass-modern) [![Total](https://img.shields.io/npm/dt/grunt-sass-modern.svg)](https://www.npmjs.com/package/grunt-sass-modern) [![Monthly](https://img.shields.io/npm/dm/grunt-sass-modern.svg)](https://www.npmjs.com/package/grunt-sass-modern) [![License](https://img.shields.io/npm/l/grunt-sass-modern.svg)](https://github.com/stefangabos/grunt-sass-modern/blob/master/LICENSE.md)
+
+
 This is a fork of the original [grunt-sass](https://github.com/sindresorhus/grunt-sass) repository which required a small update  as per [this issue](https://github.com/sindresorhus/grunt-sass/issues/311) after [Dart SASS](https://github.com/sass/dart-sass/tree/main) started emitting the following deprecation warning starting with version `1.79.0`:
 
 _Deprecation Warning: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0._<br>
@@ -13,13 +16,13 @@ Since the author of the original repository did not provide a fix and still a lo
 
 If you are already using the original [grunt-sass](https://github.com/sindresorhus/grunt-sass), edit your `package.json` file and look for something like
 
-```
+```bash
 "grunt-sass": "^3.1.0",
 ```
 ...and delete that.
 
 Afterwards, call
-```
+```bash
 $ npm install --save-dev grunt-sass-modern
 ```
 ...to install the updated version
