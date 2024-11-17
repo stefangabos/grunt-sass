@@ -42,7 +42,7 @@ module.exports = grunt => {
                 }
 
                 if (options.sourceMap) {
-                    result.css = '/*# sourceMappingURL=' + path.basename(filePath) + '*/' + "\n" + result.css;
+                    result.css = '/*# sourceMappingURL=' + (options.sourceMap === true ? path.basename(filePath) : options.sourceMap) + ' */' + "\n" + result.css;
                 }
 
                 grunt.file.write(item.dest, result.css);

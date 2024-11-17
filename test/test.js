@@ -38,7 +38,7 @@ exports.sass = {
         test.expect(2);
 
         const css = grunt.file.read('test/tmp/source-map.css');
-        test.ok(/\/\*# sourceMappingURL=source-map\.css\.map/.test(css), 'should include sourceMapppingUrl');
+        test.ok(/\/\*# sourceMappingURL=test\/tmp\/source-map\.css\.map/.test(css), 'should include sourceMapppingUrl');
 
         const map = grunt.file.read('test/tmp/source-map.css.map');
         test.ok(/test\.scss/.test(map), 'should include the main file in sourceMap at least');
