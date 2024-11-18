@@ -17,7 +17,7 @@ Switching to `grunt-sass-modern` fork provides:
 
 - **compatibility fixes**: resolves the cause of Dart Sass 1.79.0+ deprecation warnings
 - **fixes broken source maps**: fixes issues with broken source maps since at least Sass 1.48.0
-- **modern approach**: alignied with the latest Sass ecosystem
+- **modern approach**: aligned with the latest Sass ecosystem
 
 Key features
 
