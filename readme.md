@@ -44,7 +44,7 @@ If you are already using the original [grunt-sass](https://github.com/sindresorh
 To install `grunt-sass-modern` run
 
 ```bash
-$ npm install --save-dev grunt-sass-modern
+$ npm install grunt-sass-modern --save-dev
 ```
 
 ## Usage
