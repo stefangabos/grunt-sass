@@ -79,7 +79,7 @@ module.exports = function(grunt) {
 }
 ```
 
-## Options changed in the `modern` API
+## Some options have changed in the `modern` API
 
 > Note than when switching to the `modern` API, most of the [options available in legacy mode](https://sass-lang.com/documentation/js-api/interfaces/legacysharedoptions/) will not work anymore like, for example, `indentType` and `indentWidth`, while other have been renamed, like `outputStyle` which became `style`.<br><br>
 > Thus, make sure yo look into the [available options](https://sass-lang.com/documentation/js-api/interfaces/options/) when switching to the `modern` API.
